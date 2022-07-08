@@ -11,6 +11,8 @@ let drinkID
 function getDrink(){
     stopCarousel()
     let drink = document.querySelector('input').value
+    let drinkCard = document.querySelectorAll('.card')
+    drinkCard.forEach(card => card.remove())
 
 //comment out input
 fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
