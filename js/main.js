@@ -58,35 +58,6 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
         })
         document.getElementById(`${data.drinks[i].idDrink}`).addEventListener('click', displayRecipe)
       }
-
-    // //pure unedited before using for each loop
-    //   //create content
-    //   const container = document.querySelector('.results-container')
-    //   const card = document.createElement('div')
-    //   const img = document.createElement('img')
-    //   const content = document.createElement('div')
-    //   const p = document.createElement('p')
-    //   const h2 = document.createElement('h2')
-    //   //add classes
-    //   card.classList.add('card')
-    //   img.classList.add('result-img')
-    //   content.classList.add('result-content')
-    //   p.classList.add('category')
-    //   h2.classList.add('result-name')
-    //   //put them in place
-    //   content.appendChild(p)
-    //   content.appendChild(h2)
-    //   card.appendChild(img)
-    //   card.appendChild(content)
-    //   container.appendChild(card)
-    //   //fills in newly created content
-    //   document.querySelector('.carousel-container').style.display = 'none'
-    //   document.querySelector('.results-container').style.display = 'flex'
-    //   document.querySelector('.result-name').innerText = data.drinks[0].strDrink
-    //   document.querySelector('.result-img').src = data.drinks[0].strDrinkThumb
-    //   document.querySelector('.category').innerHTML = data.drinks[0].strIBA != null ? data.drinks[0].strIBA : data.drinks[0].strCategory
-    
-
     })
     .catch(err => {
         console.log(`error ${err}`)
@@ -123,6 +94,9 @@ function stopCarousel(){
 function displayRecipe(){
     stopCarousel()
     document.querySelector('.recipe-container').style.display = 'flex'
+    let ingredients = document.querySelectorAll('.ingredient-list')
+    ingredients.forEach(ingredient => ingredient.remove())
+
     console.log('the drink ID being used is '+drinkID)
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`)
     .then(res => res.json()) // parse response as JSON
@@ -137,6 +111,7 @@ function displayRecipe(){
         if(data.drinks[0][`strIngredient${i}`] != null){
             //console.log(data.drinks[0][`strIngredient${i}`])
             const li = document.createElement('li')
+            li.classList.add('ingredient-list')
             li.textContent = (data.drinks[0][`strMeasure${i}`] != null ? data.drinks[0][`strMeasure${i}`] : '') + ' ' + data.drinks[0][`strIngredient${i}`]
             document.querySelector('.ingredients-list').appendChild(li)
         }else{
