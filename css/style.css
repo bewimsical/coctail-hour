@@ -64,6 +64,7 @@ html{
 }
 header{
   background-color: black;
+  width: 100%;
 }
 
 .logo{
@@ -73,6 +74,7 @@ header{
 
 section.top{
   display: flex;
+  flex-wrap: wrap;
   background-color: white;
   padding-bottom: 20px;
 }
@@ -122,7 +124,7 @@ section.top{
 .recipe-container{
   color: white;
   min-height: 10px;
-  padding: 15px 25px 100px 50px;
+  padding: 15px 50px 100px 50px;
   display: none;
   flex-wrap: wrap;
 }
@@ -136,6 +138,7 @@ section.top{
 
 .ingredients {
   width: 50%;
+  padding-bottom: 25px;
 }
 
 .recipe-img-container{
@@ -240,3 +243,27 @@ footer li{
   margin: 10px;
 }
 
+@media all and (max-width: 736px) {
+  
+  header{
+    text-align: center;
+  }
+
+  .top .search-container,
+  .top .carousel-container,
+  .top .results-container,
+  .ingredients,
+  .recipe-img-container{
+    width: 100%;
+  }
+
+  .results-container{
+    justify-content: center;
+  }
+  
+  form {
+    max-width: 90%;
+  }
+
+ 
+}
