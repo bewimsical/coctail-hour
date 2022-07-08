@@ -1,0 +1,197 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+/* forms and buttons */
+form {
+  height: 50px;
+  width: 400px;
+  padding: 10px;
+  padding-right: 5px;
+  border: 1px solid black;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  
+  font-size: 25px;
+  border: white;
+  width: calc(100% - 45px)
+}
+
+input:focus-visible {
+  outline: white auto 1px;
+  outline-color: white;
+  outline-style: auto;
+  outline-width: 1px;
+}
+
+button {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background: black;
+  border: black;
+  color: white;
+}
+
+button:hover,
+button:focus{
+  color: goldenrod;
+}
+
+button:active{
+  border: 2px solid goldenrod;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+html{
+  background: black;
+  font-family: 'Jura', sans-serif;
+}
+header{
+  background-color: black;
+}
+
+.logo{
+  height: 100px;
+  margin: 15px;
+}
+
+section.top{
+  display: flex;
+  background-color: white;
+}
+
+.search-container{
+  width: 50%;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search-container h1{
+  font-size: 40px;
+  text-align: center;
+}
+
+.carousel-container{
+  width: 50%;
+  padding: 10px 25px;
+  display: flex;
+  align-items:  center;
+  flex-direction: column;
+}
+
+.carousel-container img{
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 350px;
+}
+
+.carousel-container p{
+  text-align: center;
+  font-size: 32px;
+}
+
+.carousel-container a{
+  text-decoration: none;
+}
+.carousel-container h2{
+  text-align: center;
+  color: black;
+}
+
+.recipe-container{
+  color: white;
+  padding: 15px 25px 100px 50px;
+  display: none;
+  flex-wrap: wrap;
+}
+
+.recipe-container .drink-name {
+  width: 100%;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 40px;
+}
+
+.ingredients {
+  width: 50%;
+}
+
+.recipe-img-container{
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+.recipe-img{
+  border-radius: 5px;
+  height: 300px;
+  text-align: center;
+}
+.ingredients h2{
+  text-decoration: underline;
+}
+
+.ingredients li{
+  margin: 5px;
+}
+
+/* results section */
+.results-container{
+  width: 50%;
+  padding: 10px 25px;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.results-container .card{
+  margin: 20px;
+  height: 225px;
+  width: 150px;
+  cursor: pointer;
+  background: transparent;
+  z-index: 2;
+  /* border: 1px solid black; */
+}
+.results-container .card:hover{
+  transform: scale(1.1);
+}
+.card .result-img{
+  height: 150px;
+  border-radius: 5px;
+}
+
+.result-content{
+  padding: 5px;
+  text-align: center;
+}
+.results-container .category{
+  color: goldenrod;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+  
+}
+
+.results-container .result-name{
+  font-size: 20px;
+  margin: 0;
+}
