@@ -46,11 +46,11 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
         document.querySelector(`.result-name${i}`).innerText = data.drinks[i].strDrink
         document.querySelector(`.result-img-${i}`).src = data.drinks[i].strDrinkThumb
         document.querySelector(`.category-${i}`).innerHTML = data.drinks[i].strIBA != null ? data.drinks[i].strIBA : data.drinks[i].strCategory
-        document.getElementById(`${data.drinks[i].idDrink}`).addEventListener('click', async(x) => {
+        document.getElementById(`${data.drinks[i].idDrink}`).addEventListener('click', (x) => {
             if(!x.target.parentNode.id){
-                drinkID = await x.target.parentNode.parentNode.id
+                drinkID = x.target.parentNode.parentNode.id
             }else{
-                drinkID = await x.target.parentNode.id
+                drinkID = x.target.parentNode.id
             }
         console.log('drink ID is '+ drinkID)  
         })
