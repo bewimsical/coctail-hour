@@ -2,6 +2,11 @@
 
 document.addEventListener("DOMContentLoaded", cocktailCarousel)
 document.querySelector('button').addEventListener('click', getDrink)
+document.querySelector('input').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      getDrink()
+    }
+});
 document.querySelector('.recipe-link').addEventListener('click', displayRecipe)
 
 let drinkID 

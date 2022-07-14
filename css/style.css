@@ -14,6 +14,7 @@
 form {
   height: 50px;
   width: 400px;
+  max-width: 95%;
   padding: 10px;
   padding-right: 5px;
   border: 1px solid black;
@@ -146,7 +147,7 @@ section.top{
   font-size: 32px;
 }
 
-.carousel-container a{
+.recipe-link{
   text-decoration: none;
 }
 .carousel-container h2{
@@ -254,13 +255,15 @@ section.top{
   font-size: 12px;
   font-weight: bold;
   margin: 0;
-  
 }
 
 .results-container .result-name{
   font-size: 20px;
   margin: 0;
+  color: black;
 }
+
+
 
 footer {
   background: white;
@@ -322,6 +325,13 @@ footer li{
   
   form {
     max-width: 90%;
+  }
+
+  .results-container {
+    border: none;
+    max-height: 100%;
+  
+    box-shadow: none;
   }
 
  
