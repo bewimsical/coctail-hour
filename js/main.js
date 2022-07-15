@@ -8,8 +8,25 @@ document.querySelector('input').addEventListener('keypress', function (e) {
     }
 });
 document.querySelector('.recipe-link').addEventListener('click', displayRecipe)
-
+let searchOptions = document.querySelectorAll('.search-by')
+searchOptions.forEach(option => option.addEventListener('click', (x) => {setSearch(x.target)}))
 let drinkID 
+let searchBy = 'search.php?s'
+
+function setSearch(e){
+searchOptions.forEach(option => option.classList.remove('active'))
+e.classList.add('active')
+let activeOption = e.innerText
+switch(activeOption){
+    case 'Name':
+        searchBy = 'search.php?s'
+        break;
+    case 'Ingredient':
+        searchBy = 'filter.php?i'
+        break;
+}
+console.log(searchBy + 'is being searched')
+}
 
 function getDrink(){
     stopCarousel()
@@ -20,10 +37,10 @@ function getDrink(){
     noDrinkMessage.forEach(message => message.remove())
     
 //comment out input
-fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+fetch(`https://www.thecocktaildb.com/api/json/v1/1/${searchBy}=${drink}`)
     .then(res => res.json()) // parse response as JSON
     .then(data => {
-      console.log(data.drinks)
+      console.log(data)
       document.querySelector('.carousel-container').style.display = 'none'
       document.querySelector('.results-container').style.display = 'flex'
       let drinks = data.drinks
@@ -43,7 +60,7 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
             // fill in cards
             card.querySelector(`.result-name`).innerText = data.drinks[i].strDrink
             card.querySelector(`.result-img`).src = data.drinks[i].strDrinkThumb
-            card.querySelector(`.category`).innerHTML = data.drinks[i].strIBA != null ? data.drinks[i].strIBA : data.drinks[i].strCategory
+            card.querySelector(`.category`).innerHTML = data.drinks[i].strIBA != null ? data.drinks[i].strIBA : data.drinks[i].strCategory != undefined ? data.drinks[i].strCategory : ""
             //make cards functional
             card.addEventListener('click', (x) => {
                 if(!x.target.parentNode.id){
