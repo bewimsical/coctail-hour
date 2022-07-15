@@ -180,7 +180,8 @@ footer ul,
   font-size: 32px;
 }
 
-.recipe-link{
+.recipe-link, 
+.to-top{
   text-decoration: none;
 }
 .carousel-container h2{
@@ -195,6 +196,7 @@ footer ul,
   display: none;
   flex-wrap: wrap;
   margin: 0 auto;
+  position: relative;
 }
 
 .recipe-container .drink-name {
@@ -226,6 +228,36 @@ footer ul,
 .ingredients li{
   margin: 5px;
 }
+
+.to-top div:hover{
+  transform: scale(1.2);
+}
+
+.to-top div:active{
+  background: white;
+}
+.to-top div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: goldenrod;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  height: 50px;
+  width: 50px;
+  padding-bottom: 5px;
+  border-radius: 9999px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.to-top span{
+  line-height: 11px;
+}
+
 
 /* results section */
 /* .results-container{
